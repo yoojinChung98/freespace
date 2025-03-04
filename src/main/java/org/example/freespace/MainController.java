@@ -19,7 +19,6 @@ public class MainController {
 
     @GetMapping("/enum-test")
     public void enumTest() {
-        // 실행 테스트
         CafeDrink americano = CafeDrink.AMERICANO;
         System.out.println("타입: " + americano.getDrinkType()); // tea
         americano.make();
@@ -35,7 +34,6 @@ public class MainController {
 
     @GetMapping("/enum-test-functionalinterface")
     public void enumTestFunctionalInterface() {
-        // 실행 테스트
         CafeDrinkFunctionalInterface americano = CafeDrinkFunctionalInterface.AMERICANO;
         System.out.println("타입: " + americano.getCoffeeType()); // tea
         americano.make();
