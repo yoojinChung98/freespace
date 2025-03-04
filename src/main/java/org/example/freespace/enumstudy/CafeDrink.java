@@ -1,5 +1,7 @@
 package org.example.freespace.enumstudy;
 
+import lombok.Getter;
+
 public enum CafeDrink {
     /*
      * name : AMERICANO, LATTE, CAMOMILE, ICETEA
@@ -39,8 +41,11 @@ public enum CafeDrink {
 
 
     // CafeDrink 상태 필드
+    @Getter
     private final String drinkType;
+    @Getter
     private final long price;
+    @Getter
     private final double discount;
     // CafeDrink 익명 메서드 (각 상수에서 오버라이드 시켜야함.)
     public abstract void doWork();
@@ -52,13 +57,12 @@ public enum CafeDrink {
         this.discount = discount;
     }
 
-    // 커피 타입 반환 메서드 (@Getter 적용 안됨.)
-    public String getCoffeeType() { return drinkType; }
-
-    // 커피 가격 메서드
-    public long getPrice() { return price; }
-    // 커피별 할인률 메서드
-    public double getDiscount() { return discount; }
+//    // 커피 타입 반환 메서드 (@Getter 적용 안됨.)
+//    public String getCoffeeType() { return drinkType; }
+//    // 커피 가격 메서드
+//    public long getPrice() { return price; }
+//    // 커피별 할인률 메서드
+//    public double getDiscount() { return discount; }
 
     // 제조 메서드
     public void make() {
