@@ -1,4 +1,4 @@
-package org.example.freespace.enumstudy;
+package org.example.freespace.javastudy.enumstudy;
 
 // 인터페이스형 함수 선언
 @FunctionalInterface
