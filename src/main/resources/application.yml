@@ -1,9 +1,12 @@
+server:
+  port: 54321
+
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
 
     # 회사 개인 로컬
-    url: jdbc:mysql://localhost:3306/caeh_test
+    url: jdbc:mysql://localhost:3306/freespace
     username: root
     password: root123
 

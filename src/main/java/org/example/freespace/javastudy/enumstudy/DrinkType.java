@@ -1,4 +1,4 @@
-package org.example.freespace.enumstudy;
+package org.example.freespace.javastudy.enumstudy;
 
 import lombok.Getter;
 

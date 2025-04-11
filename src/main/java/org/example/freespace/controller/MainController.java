@@ -1,15 +1,23 @@
-package org.example.freespace;
+package org.example.freespace.controller;
 
-import org.example.freespace.enumstudy.CafeDrink;
-import org.example.freespace.enumstudy.CafeDrinkFunctionalInterface;
-import org.example.freespace.enumstudy.DrinkType;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.example.freespace.entity.Products;
+import org.example.freespace.javastudy.enumstudy.CafeDrink;
+import org.example.freespace.javastudy.enumstudy.CafeDrinkFunctionalInterface;
+import org.example.freespace.javastudy.enumstudy.DrinkType;
+import org.example.freespace.service.JpaService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.List;
+
+@Slf4j
 @Controller
-//@RequestMapping("/main")
+@RequiredArgsConstructor
+@RequestMapping("/main")
 public class MainController {
 
     @PostMapping("/test")
@@ -17,7 +25,7 @@ public class MainController {
         System.out.println("test Pass!");
     }
 
-    @GetMapping("/enum-test")
+    @PostMapping("/enum-test")
     public void enumTest() {
         CafeDrink americano = CafeDrink.AMERICANO;
         System.out.println("타입: " + americano.getDrinkType()); // tea
@@ -32,7 +40,7 @@ public class MainController {
         CafeDrink.CAMOMILE.doWork();
     }
 
-    @GetMapping("/enum-test-functionalinterface")
+    @PostMapping("/enum-test-functionalinterface")
     public void enumTestFunctionalInterface() {
         CafeDrinkFunctionalInterface americano = CafeDrinkFunctionalInterface.AMERICANO;
         System.out.println("타입: " + americano.getCoffeeType()); // tea
@@ -47,7 +55,7 @@ public class MainController {
         camomile.callWorker();
     }
 
-    @GetMapping("/enum-test-enumgroup")
+    @PostMapping("/enum-test-enumgroup")
     public void enumTestEnumGroup() {
 //        DrinkType americanoType = DrinkType.findDrinkType(CafeDrink.AMERICANO);
 //        double discount = americanoType.getDiscount();
