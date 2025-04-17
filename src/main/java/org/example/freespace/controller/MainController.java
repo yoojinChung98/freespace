@@ -30,6 +30,7 @@ public class MainController {
         log.info(String.valueOf(getCapacity(classList)));
         classList.trimToSize();
         log.info(String.valueOf(getCapacity(classList)));
+        //
     }
 
     private static int getCapacity(ArrayList<?> targetList) throws Exception {
