@@ -112,5 +112,7 @@ public class MainController {
 
     public class Pipi extends Dog {
         //
+        // rebase test 3
+        // rebase test 3
     }
 }
