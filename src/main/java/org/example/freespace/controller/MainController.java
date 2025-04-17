@@ -24,7 +24,6 @@ public class MainController {
         ArrayList<TestClass> classList = new ArrayList<>();
         for (int i = 0; i < 3000; i++) {
             TestClass targetClass = new TestClass();
-            targetClass.setTestField(String.valueOf(i));
             classList.add(targetClass);
         }
         log.info(String.valueOf(getCapacity(classList)));
@@ -43,6 +42,75 @@ public class MainController {
     @Getter
     @Setter
     public class TestClass {
-        private String testField;
+        private String testField1;
+        private String testField2;
+        private String testField3;
+        private String testField4;
+    }
+
+    // 인터페이스 다형성 테스트
+    @PostMapping("/upcast")
+    public void upcast() {
+        Dog dog = new Dog();
+        dog.move();
+        dog.where();
+        GroundAnimal groundAnimal = (GroundAnimal) dog;
+        groundAnimal.move();
+        groundAnimal.where();
+        // 당연한거지만 extends 하지 않은 타입으로는 형변환 불가능
+//        SkyAnimal skyAnimal = (SkyAnimal) dog;
+        // 결국 마지막으로 오버라이딩 된 메서드가 호출
+        GroundAnimal pipi = new Pipi();
+        pipi.move();
+
+        Animal animal = (Animal) dog;
+        animal.move();
+        animal.where();
+
+    }
+
+    public interface Animal {
+        public void move();
+        public void where();
+    }
+
+    public class GroundAnimal implements Animal {
+        @Override
+        public void move() {
+            log.info("GroundAnimal move");
+        }
+        @Override
+        public void where() {
+            log.info("on the ground");
+        }
+    }
+
+    public class SkyAnimal implements Animal {
+        @Override
+        public void move() {
+            log.info("SkyAnimal move on sky");
+        }
+        @Override
+        public void where() {
+            log.info("on the sky");
+        }
+    }
+
+    public class Dog extends GroundAnimal {
+        @Override
+        public void move() {
+            log.info("Dog move");
+        }
+    }
+
+    public class Owl extends SkyAnimal {
+        @Override
+        public void move() {
+            log.info("owl move");
+        }
+    }
+
+    public class Pipi extends Dog {
+        //
     }
 }
